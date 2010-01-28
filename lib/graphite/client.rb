@@ -1,5 +1,10 @@
 module Graphite
   class Client
+    
+    # Expects a string in the form of "hostname:port_num" where port_num is optional, and a prefix 
+    # to identify this server. Example:
+    # Graphite::Client.new("graphite.example.com", "yourapp.#{Rails.env}.instances.#{hostname}.#{$$}")
+
     def initialize(server, prefix)
       @logger = Graphite::Logger.new(server)
       @prefix = prefix
