@@ -1,0 +1,4 @@
+= graphite history
+
+== 0.1.0
+* Initial extraction from OIB
