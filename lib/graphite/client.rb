@@ -1,3 +1,6 @@
+require 'eventmachine'
+require 'rufus-scheduler'
+
 module Graphite
   class Client
     
@@ -18,7 +21,7 @@ module Graphite
         start_logger_timer
         @scheduler.join
       else
-        EventMachineHandler.ensure_running
+        Graphite::EventMachineHandler.ensure_running
         @scheduler = Rufus::Scheduler::EmScheduler.start_new
         start_logger_timer
       end
@@ -93,7 +96,7 @@ module Graphite
     end
 
     def start_logger_timer
-      @scheduler.every(60.seconds, :blocking => true) do
+      @scheduler.every("60s", :blocking => true) do
         send_metrics
       end
     end
