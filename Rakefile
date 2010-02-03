@@ -5,8 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "graphite"
-    gem.summary = %Q{Ruby client for sending stats to Graphite}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = gem.description = %Q{Ruby client for sending stats to Graphite}
     gem.email = "mike@capitalthought.com"
     gem.homepage = "http://github.com/otherinbox/graphite"
     gem.authors = ["Ian Ragsdale", "Mike Subelsky"]
