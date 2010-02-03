@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
      "TODO.txt",
      "VERSION",
      "examples/example_daemon.rb",
+     "graphite.gemspec",
      "lib/graphite.rb",
      "lib/graphite/client.rb",
      "lib/graphite/event_machine_handler.rb",
