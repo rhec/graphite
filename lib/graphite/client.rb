@@ -36,13 +36,6 @@ module Graphite
       end
     end
 
-    def add_shifts(name, shifts)
-      shifts.each do |seconds|
-        @shifts[seconds] ||= []
-        @shifts[seconds] << name
-      end
-    end
-
     def metrics(frequency = 1.minute)
       @scheduler.every(frequency, :first_in => '1m') do
         results = yield
@@ -58,6 +51,13 @@ module Graphite
     end
 
     private
+
+    def add_shifts(name, shifts)
+      shifts.each do |seconds|
+        @shifts[seconds] ||= []
+        @shifts[seconds] << name
+      end
+    end
 
     def log(results)
       results.keys.each do |k,v|
