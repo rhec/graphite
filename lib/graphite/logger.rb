@@ -33,7 +33,12 @@ module Graphite
         message << "#{key} #{value.to_f} #{time.to_i}\n"
       end
       logger.info("Graphite: #{message}") if logger
-      socket.write(message)
+      begin
+        socket.write(message)
+      rescue Errno::EPIPE
+        @socket = nil
+	retry
+      end	
     end
     
   end
