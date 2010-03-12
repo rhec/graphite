@@ -27,6 +27,15 @@ module Graphite
       end
     end
 
+    def previous_day_metric(name)
+      @scheduler.every("1d", :first_in => '1m') do
+        date = Date.today - 1
+        result = yield date
+        log({name + ".daily" => result}, date.to_time.to_i)
+        cleanup
+      end
+    end
+
     def metric(name, frequency = 1.minute, options = {})
       add_shifts(name,options[:shifts]) if options[:shifts]
       @scheduler.every(frequency, :first_in => '1m') do
