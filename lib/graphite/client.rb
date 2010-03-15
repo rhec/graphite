@@ -31,7 +31,7 @@ module Graphite
       @scheduler.every("1d", :first_in => '1m') do
         date = Date.today - 1
         result = yield date
-        log({name + ".daily" => result}, date.to_time.to_i)
+        log({name + ".daily" => result})
         cleanup
       end
     end
