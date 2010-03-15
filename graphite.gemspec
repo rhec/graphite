@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{graphite}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ian Ragsdale", "Mike Subelsky"]
-  s.date = %q{2010-02-03}
+  s.date = %q{2010-03-15}
   s.description = %q{Ruby client for sending stats to Graphite}
   s.email = %q{mike@capitalthought.com}
   s.extra_rdoc_files = [
