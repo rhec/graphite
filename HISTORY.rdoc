@@ -1,4 +1,9 @@
 = graphite history
 
+== 0.2.0
+* Users can specify their own logger at client initialization time
+* Rescue and retry EPIPE errors
+* Added previous_day_metric
+
 == 0.1.0
 * Initial extraction from OIB
