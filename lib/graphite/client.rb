@@ -8,8 +8,8 @@ module Graphite
     # to identify this server. Example:
     # Graphite::Client.new("graphite.example.com", "yourapp.#{Rails.env}.instances.#{hostname}.#{$$}")
 
-    def initialize(server, prefix, logger = nil)
-      @logger = Graphite::Logger.new(server,logger)
+    def initialize(server, prefix, logger = nil, graphite_logger=nil)
+      @logger = graphite_logger || Graphite::Logger.new(server,logger)        
       @prefix = prefix
       @metrics = {}
       @counters = {}
