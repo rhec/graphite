@@ -10,15 +10,17 @@ module Graphite
     end
         
     def socket
-      plain_socket = super()
-      ssl_context = OpenSSL::SSL::SSLContext.new()
-      if @cert && @key
-        ssl_context.cert = OpenSSL::X509::Certificate.new(@cert)
-        ssl_context.key = OpenSSL::PKey::RSA.new(@key)
+      if @socket.nil? || @socket.closed?
+        plain_socket = super()
+        ssl_context = OpenSSL::SSL::SSLContext.new()
+        if @cert && @key
+          ssl_context.cert = OpenSSL::X509::Certificate.new(@cert)
+          ssl_context.key = OpenSSL::PKey::RSA.new(@key)
+        end
+        @socket = OpenSSL::SSL::SSLSocket.new(plain_socket, ssl_context)
+        @socket.sync_close = true
+        @socket.connect
       end
-      @socket = OpenSSL::SSL::SSLSocket.new(plain_socket, ssl_context)
-      @socket.sync_close = true
-      @socket.connect 
       @socket
     end
     
