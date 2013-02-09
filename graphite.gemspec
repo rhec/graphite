@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{graphite}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ian Ragsdale", "Mike Subelsky"]
-  s.date = %q{2010-03-15}
+  s.date = %q{2010-07-01}
   s.description = %q{Ruby client for sending stats to Graphite}
   s.email = %q{mike@capitalthought.com}
   s.extra_rdoc_files = [
@@ -31,13 +31,14 @@ Gem::Specification.new do |s|
      "lib/graphite/client.rb",
      "lib/graphite/event_machine_handler.rb",
      "lib/graphite/logger.rb",
+     "lib/graphite/ssl_logger.rb",
      "test/helper.rb",
      "test/test_graphite.rb"
   ]
   s.homepage = %q{http://github.com/otherinbox/graphite}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{Ruby client for sending stats to Graphite}
   s.test_files = [
     "test/helper.rb",

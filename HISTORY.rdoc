@@ -1,5 +1,9 @@
 = graphite history
 
+== 0.3.0
+* Add ssl logger support
+* Clean up client initialize method signature by using an options hash
+
 == 0.2.0
 * Users can specify their own logger at client initialization time
 * Rescue and retry EPIPE errors
