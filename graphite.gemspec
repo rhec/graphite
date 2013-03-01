@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
      "lib/graphite/event_machine_handler.rb",
      "lib/graphite/logger.rb",
      "lib/graphite/ssl_logger.rb",
+     "lib/graphite/renderer.rb",
      "test/helper.rb",
      "test/test_graphite.rb"
   ]
